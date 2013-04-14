@@ -19,6 +19,7 @@
 		22B42D4D171B31900013CFDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B42D4C171B31900013CFDC /* Default-568h@2x.png */; };
 		22B42D50171B31900013CFDC /* FloatNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B42D4E171B31900013CFDC /* FloatNote.xcdatamodeld */; };
 		22B42D5B171B38320013CFDC /* NoteReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B42D5A171B38320013CFDC /* NoteReminder.m */; };
+		22B42D5D171B40270013CFDC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B42D5C171B40270013CFDC /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		22B42D4F171B31900013CFDC /* FloatNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FloatNote.xcdatamodel; sourceTree = "<group>"; };
 		22B42D59171B38320013CFDC /* NoteReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteReminder.h; sourceTree = "<group>"; };
 		22B42D5A171B38320013CFDC /* NoteReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteReminder.m; sourceTree = "<group>"; };
+		22B42D5C171B40270013CFDC /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				22B42D5A171B38320013CFDC /* NoteReminder.m */,
 				22B42D45171B31900013CFDC /* AppDelegate.h */,
 				22B42D46171B31900013CFDC /* AppDelegate.m */,
+				22B42D5C171B40270013CFDC /* MainStoryboard.storyboard */,
 				22B42D4E171B31900013CFDC /* FloatNote.xcdatamodeld */,
 				22B42D3D171B31900013CFDC /* Supporting Files */,
 			);
@@ -166,6 +169,7 @@
 				22B42D49171B31900013CFDC /* Default.png in Resources */,
 				22B42D4B171B31900013CFDC /* Default@2x.png in Resources */,
 				22B42D4D171B31900013CFDC /* Default-568h@2x.png in Resources */,
+				22B42D5D171B40270013CFDC /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
