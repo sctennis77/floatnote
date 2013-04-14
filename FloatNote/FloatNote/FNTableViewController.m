@@ -7,7 +7,7 @@
 //
 
 #import "FNTableViewController.h"
-
+#import "FNCreateNoteViewController.h"
 @interface FNTableViewController ()
 
 @end
@@ -36,7 +36,7 @@
 }
 
 
-/*
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,7 +46,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
+    
+    self.navigationItem.rightBarButtonItem = item;
 }
+
 
 
 - (void)didReceiveMemoryWarning
@@ -54,7 +58,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-*/
+
 
 #pragma mark - Table view data source
 
@@ -166,5 +170,15 @@
     NSError *error = nil;
     self.noteArray = [context executeFetchRequest:fetchRequest error:&error];
     [self.tableView reloadData];
+}
+
+- (void) addItem {
+    
+    FNCreateNoteViewController *fNCreateNoteViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FNCreateNoteViewController"];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fNCreateNoteViewController];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
 }
 @end
