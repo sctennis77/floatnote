@@ -22,7 +22,6 @@
     if (self) {
         // Custom initialization
     }
-    NSLog(@"viewing");
     return self;
 }
  
@@ -31,7 +30,6 @@
     [super viewWillAppear:animated];
     
     /* Here we call the method to load the table data */
-    NSLog(@"viewing");
     [self loadTableData];
 }
 

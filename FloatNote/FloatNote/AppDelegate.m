@@ -23,9 +23,15 @@
     //self.window.backgroundColor = [UIColor whiteColor];
     //[self.window makeKeyAndVisible];
     //[self create];
-    //[self create];
+    [self create: @"TEST NOTE"
+                :[NSNumber numberWithInt:5]
+                :[NSNumber numberWithInt:5]
+                : @"TESTING"
+                : [NSNumber numberWithInt:5]
+                :[NSNumber numberWithInt:5]
+                :[NSNumber numberWithInt:5]];
     //[self read];
-  //  [self delete];
+     //[self delete];[self delete];[self delete];[self delete];[self delete];[self delete];[self delete];
     //[self update];
     return YES;
 }
@@ -154,15 +160,32 @@
 }
 
 #pragma mark- Create NoteReminder
-- (void) create {
+- (void) create: (NSString *) title
+               :(NSNumber *) lat
+               :(NSNumber *) lng
+               :(NSString *) body
+               :(NSNumber *) radius
+               :(NSNumber *) doa
+               :(NSNumber *) status
+{
     // Grab the context
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Grab the Label entity
     NoteReminder *notereminder = [NSEntityDescription insertNewObjectForEntityForName:@"NoteReminder" inManagedObjectContext:context];
 
+    //compute the id
+    //get the id of the last note in the collection
+    NSInteger tmp = [self read] + 1; //create a temporary representation of the id
     
-    notereminder.title = @"Hello Steve is this working??";
+    notereminder.id  = [NSNumber numberWithInt:tmp]; //finally cast the integer
+    notereminder.title = title;
+    notereminder.lat = lat;
+    notereminder.lng = lng;
+    notereminder.body = body;
+    notereminder.radius = radius;
+    notereminder.doa = doa;
+    notereminder.status = status;
     
     NSError *error = nil;
     if ([context save:&error]) {
@@ -174,7 +197,7 @@
 
 
 #pragma mark- Read NoteReminder
-- (void) read {
+- (NSInteger) read {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Construct a fetch request
@@ -189,6 +212,7 @@
         NSLog(@"Reading: %@",notereminder.title);
         
     }
+    return [fetchedObjects count];
     
 }
 
