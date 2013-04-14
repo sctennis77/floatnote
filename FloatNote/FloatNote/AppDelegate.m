@@ -22,7 +22,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-   //[self create];
+    //[self create];
+    //[self create];
     [self read];
   //  [self delete];
     //[self update];
@@ -185,7 +186,7 @@
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     for (NoteReminder *notereminder in fetchedObjects){
-        NSLog(@"Reading: %@",notereminder.body);
+        NSLog(@"Reading: %@",notereminder.title);
         
     }
     
