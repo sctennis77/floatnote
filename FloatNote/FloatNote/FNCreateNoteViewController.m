@@ -7,8 +7,9 @@
 //
 
 #import "FNCreateNoteViewController.h"
-#import "AppDelegate.h"
+#import "AppDelegate.h" 
 #import "NoteReminder.h"
+#import "MapViewController.h"
 @interface FNCreateNoteViewController ()
 
 @end
@@ -35,33 +36,37 @@
     self.navigationItem.leftBarButtonItem = item2;
 }
 
+
 - (void) addNote {
     
-    // Grab the context
-    NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
+  
     
-    // Grab the Label entity
-    NoteReminder *nr = [NSEntityDescription insertNewObjectForEntityForName:@"NoteReminder" inManagedObjectContext:context];
+    // get reminder init values
+    // should we spoof lat lng here and update next page
+    // and radius
     
-    // Set label name
     NSString *title = self.titleField.text;
+    NSNumber *lat = [NSNumber numberWithInt:0];
+    NSNumber *lng = [NSNumber numberWithInt:0];
     NSString *body = self.bodyField.text;
+    NSNumber *radius = [NSNumber numberWithInt:3];
     NSString *doa = [self.doaButton titleForSegmentAtIndex:self.doaButton.selectedSegmentIndex];
+    NSNumber *doa_num =[NSNumber numberWithInt:1];
+    NSNumber *status =[NSNumber numberWithInt:0];
+  
+    [[self appDelegate] create:title :lat :lng :body :radius :doa_num :status];
+ 
+    
     
     NSLog(@"Creating reminder:\nt: %@\nb: %@\ndoa: %@",title,body,doa);
-    nr.title = self.titleField.text;
     
     
-    // Save everything
-    NSError *error = nil;
-    if ([context save:&error]) {
-        NSLog(@"The save was successful!");
-    } else {
-        NSLog(@"The save wasn't successful: %@", [error userInfo]);
-    }
     
+  
+    // instead of dismiss we want to go to the map view
     [self dismiss];
 }
+
 
 
 -(BOOL) checkInput:(NSString*)title :(NSString*)body :(NSString*)doa {

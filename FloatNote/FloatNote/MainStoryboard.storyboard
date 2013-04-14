@@ -42,18 +42,19 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter title" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuF-uC-V35">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuF-uC-V35">
+                                <accessibility key="accessibilityConfiguration" hint="title" label="title"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="tOr-Yc-zWE"/>
+                                    <constraint firstAttribute="width" constant="97" id="bWD-kt-sCh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter reminder text" translatesAutoresizingMaskIntoConstraints="NO" id="qL5-Ls-CqF">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="bod" translatesAutoresizingMaskIntoConstraints="NO" id="qL5-Ls-CqF">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="body"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="Iyq-o7-zxb"/>
-                                    <constraint firstAttribute="width" constant="240" id="S0s-bq-6US"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -64,26 +65,43 @@
                                     <segment title="depart"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hty-K2-3Nd">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Map">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FVa-Qz-3LQ" kind="push" id="GPO-jg-ZhI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K9B-D5-h8Q" firstAttribute="leading" secondItem="qL5-Ls-CqF" secondAttribute="leading" type="default" id="MDN-iP-sUD"/>
-                            <constraint firstItem="qL5-Ls-CqF" firstAttribute="top" secondItem="GuF-uC-V35" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dkE-gW-hdg"/>
-                            <constraint firstItem="GuF-uC-V35" firstAttribute="top" secondItem="RS7-V8-qVE" secondAttribute="top" constant="86" id="jkZ-Co-HLy"/>
-                            <constraint firstItem="qL5-Ls-CqF" firstAttribute="leading" secondItem="GuF-uC-V35" secondAttribute="leading" type="default" id="mVV-DR-e3b"/>
-                            <constraint firstAttribute="bottom" secondItem="K9B-D5-h8Q" secondAttribute="bottom" constant="174" id="oXc-t3-H6y"/>
+                            <constraint firstItem="GuF-uC-V35" firstAttribute="leading" secondItem="RS7-V8-qVE" secondAttribute="leading" constant="40" id="8dJ-4g-jYs"/>
+                            <constraint firstItem="GuF-uC-V35" firstAttribute="top" secondItem="hty-K2-3Nd" secondAttribute="top" type="default" id="MJN-mT-I89"/>
+                            <constraint firstAttribute="trailing" secondItem="hty-K2-3Nd" secondAttribute="trailing" constant="98" id="NQM-PI-gQ7"/>
+                            <constraint firstItem="K9B-D5-h8Q" firstAttribute="top" secondItem="RS7-V8-qVE" secondAttribute="top" constant="195" id="Naf-5D-ojL"/>
+                            <constraint firstItem="K9B-D5-h8Q" firstAttribute="leading" secondItem="GuF-uC-V35" secondAttribute="leading" type="default" id="OF7-fb-APP"/>
+                            <constraint firstItem="qL5-Ls-CqF" firstAttribute="top" secondItem="K9B-D5-h8Q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PkV-qR-8Rf"/>
+                            <constraint firstItem="GuF-uC-V35" firstAttribute="top" secondItem="RS7-V8-qVE" secondAttribute="top" constant="129" id="f0P-Mp-cLw"/>
+                            <constraint firstItem="K9B-D5-h8Q" firstAttribute="leading" secondItem="qL5-Ls-CqF" secondAttribute="leading" type="default" id="lDM-u2-r0h"/>
                             <constraint firstItem="qL5-Ls-CqF" firstAttribute="centerX" secondItem="RS7-V8-qVE" secondAttribute="centerX" type="default" id="pqH-wc-Lz1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bodyField" destination="qL5-Ls-CqF" id="Swx-AF-dVP"/>
                         <outlet property="doaButton" destination="K9B-D5-h8Q" id="9pt-qU-NwY"/>
+                        <outlet property="mapButton" destination="hty-K2-3Nd" id="Y4y-61-3Rt"/>
                         <outlet property="titleField" destination="GuF-uC-V35" id="3Od-fi-64d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="322-tY-uOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="-324"/>
+            <point key="canvasLocation" x="915" y="-410"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fzd-au-SXq">
@@ -103,7 +121,42 @@
             </objects>
             <point key="canvasLocation" x="24" y="-410"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="75R-VE-HOJ">
+            <objects>
+                <viewController id="FVa-Qz-3LQ" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JFf-al-HSi">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lfJ-7a-du6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tV1-i2-egB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340" y="-394"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="FNCreateNoteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FNCreateNoteViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bodyField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="doaButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="mapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FNTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FNTableViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

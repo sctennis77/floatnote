@@ -19,4 +19,17 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+-(void) create:(NSString *) title
+              :(NSNumber *) lat
+              :(NSNumber *) lng
+              :(NSString *) body
+              :(NSNumber *) radius
+              :(NSNumber *) doa
+              :(NSNumber *) status;
+-(NSNumber*) get_id;
+-(NSArray *) read;
+
+- (void) delete;
+
 @end
+

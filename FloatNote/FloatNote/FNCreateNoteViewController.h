@@ -16,4 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *doaButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
+
+-(id)switchToMap:(id)sender;
 @end

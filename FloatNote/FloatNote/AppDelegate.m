@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NoteReminder.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 
 @implementation AppDelegate
@@ -23,13 +24,8 @@
     //self.window.backgroundColor = [UIColor whiteColor];
     //[self.window makeKeyAndVisible];
     //[self create];
-    [self create: @"TEST NOTE"
-                :[NSNumber numberWithInt:5]
-                :[NSNumber numberWithInt:5]
-                : @"TESTING"
-                : [NSNumber numberWithInt:5]
-                :[NSNumber numberWithInt:5]
-                :[NSNumber numberWithInt:5]];
+    
+    [GMSServices provideAPIKey:@"AIzaSyAN0By1QMVEH6FMoXThAKDpyB6SdD4d0sg"];
     //[self read];
      //[self delete];[self delete];[self delete];[self delete];[self delete];[self delete];[self delete];
     //[self update];
