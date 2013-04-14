@@ -174,11 +174,7 @@
     // Grab the Label entity
     NoteReminder *notereminder = [NSEntityDescription insertNewObjectForEntityForName:@"NoteReminder" inManagedObjectContext:context];
 
-    //compute the id
-    //get the id of the last note in the collection
-    NSInteger tmp = [self read] + 1; //create a temporary representation of the id
-    
-    notereminder.id  = [NSNumber numberWithInt:tmp]; //finally cast the integer
+    notereminder.id  = [self get_id]; //finally cast the integer
     notereminder.title = title;
     notereminder.lat = lat;
     notereminder.lng = lng;
@@ -195,9 +191,8 @@
     }
 }
 
-
-#pragma mark- Read NoteReminder
-- (NSInteger) read {
+- (NSNumber *) get_id{
+    //get the id for a new entry
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Construct a fetch request
@@ -208,11 +203,36 @@
     [fetchRequest setEntity:entity];
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (NoteReminder *notereminder in fetchedObjects){
-        NSLog(@"Reading: %@",notereminder.title);
+    if ([fetchedObjects count] == 0){
+        return [NSNumber numberWithInt:1]; //for the very first entry
         
     }
-    return [fetchedObjects count];
+    
+    //otherwise get the id of the last element, add 1 and return that
+    NoteReminder *last = [fetchedObjects objectAtIndex:([fetchedObjects count]-1)];
+    NSInteger id = [last.id intValue] + 1;
+    //NSLog(@"Id is : %d", [last.id intValue]);
+    //NSLog(@"Id is : %d", id);
+    return [NSNumber numberWithInt:id];
+
+}
+#pragma mark- Read NoteReminder
+- (NSArray *) read {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Construct a fetch request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"NoteReminder"
+                                              inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    //for (NoteReminder *notereminder in fetchedObjects){
+    //    NSLog(@"Reading: %@",notereminder.title);
+        
+    //}
+    return fetchedObjects; //just return the full result set
     
 }
 
