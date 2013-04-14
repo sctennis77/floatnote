@@ -67,6 +67,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //the count in the noteArray
+    NSLog(@"count");
     return [noteArray count];
 }
 
@@ -83,7 +84,7 @@
     NoteReminder *note = [self.noteArray objectAtIndex:indexPath.row];
     // Set the text of the cell to the label name
     cell.textLabel.text = note.title;
-    
+     NSLog(@"cell");
     return cell;
 }
 
