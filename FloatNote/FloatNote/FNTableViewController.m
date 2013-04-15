@@ -86,7 +86,7 @@
     NoteReminder *note = [self.noteArray objectAtIndex:indexPath.row];
     // Set the text of the cell to the label name
     cell.textLabel.text = note.title;
-     NSLog(@"cell");
+ 
     return cell;
 }
 

@@ -17,21 +17,48 @@
 // You don't need to modify the default initWithNibName:bundle: method.
 
 - (void)loadView {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.8683
-                                                            longitude:151.2086
+    
+   
+    
+    locationController = [[MyCLController alloc] init];
+    [locationController.locationManager startUpdatingLocation];
+    
+    NSLog(@"%f,%f",locationController.locationManager.location.coordinate.latitude,locationController.locationManager.location.coordinate.longitude);
+    
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:locationController.locationManager.location.coordinate.latitude
+                                                            longitude:locationController.locationManager.location.coordinate.longitude
                                                                  zoom:6];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    
     mapView_.myLocationEnabled = YES;
+  
+    
+    mapView_.delegate = self;
+    
     self.view = mapView_;
     
+  
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-    options.position = CLLocationCoordinate2DMake(-33.8683, 151.2086);
-    options.title = @"Sydney";
-    options.snippet = @"Australia";
+    options.position = CLLocationCoordinate2DMake(locationController.locationManager.location.coordinate.latitude,locationController.locationManager.location.coordinate.longitude);
+    options.title = @"Current";
+    options.snippet = @"Location";
     [mapView_ addMarkerWithOptions:options];
 }
 
 
+
+#pragma mark - GMSMapViewDelegate
+
+- (void)mapView:(GMSMapView *)mapView
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+    options.position = CLLocationCoordinate2DMake(coordinate.latitude,coordinate.longitude);
+    options.title = @"Tapped";
+    options.snippet = @"Location";
+    [mapView addMarkerWithOptions:options];
+    NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
+}
 
 - (void)viewDidLoad
 {

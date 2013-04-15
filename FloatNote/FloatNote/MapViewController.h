@@ -10,9 +10,10 @@
 
 
 #import <GoogleMaps/GoogleMaps.h>
+#import "MYCLController.h"
 
 
-
-@interface MapViewController : UIViewController
-
+@interface MapViewController : UIViewController<GMSMapViewDelegate>{
+   MyCLController *locationController;
+}
 @end

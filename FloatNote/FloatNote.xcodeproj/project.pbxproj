@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225503D6171B883B00665DDA /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225503D5171B883B00665DDA /* MyCLController.m */; };
 		2256FFB0171B6A5D00A49DC7 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2256FFAF171B6A5D00A49DC7 /* GoogleMaps.framework */; };
 		2256FFB2171B6A8500A49DC7 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2256FFB1171B6A8500A49DC7 /* GoogleMaps.bundle */; };
 		2256FFB4171B6AB400A49DC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2256FFB3171B6AB400A49DC7 /* AVFoundation.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225503D4171B883B00665DDA /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
+		225503D5171B883B00665DDA /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
 		2256FFAF171B6A5D00A49DC7 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		2256FFB1171B6A8500A49DC7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		2256FFB3171B6AB400A49DC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 				22D26FD1171B566C008C4AC9 /* FNCreateNoteViewController.m */,
 				2256FFC9171B706B00A49DC7 /* MapViewController.h */,
 				2256FFCA171B706B00A49DC7 /* MapViewController.m */,
+				225503D4171B883B00665DDA /* MyCLController.h */,
+				225503D5171B883B00665DDA /* MyCLController.m */,
 				AA508DBC171B47340072D1D5 /* FNTableViewController.h */,
 				AA508DBD171B47340072D1D5 /* FNTableViewController.m */,
 				22B42D4E171B31900013CFDC /* FloatNote.xcdatamodeld */,
@@ -254,6 +259,7 @@
 				AA508DBE171B47340072D1D5 /* FNTableViewController.m in Sources */,
 				22D26FD2171B566C008C4AC9 /* FNCreateNoteViewController.m in Sources */,
 				2256FFCB171B706B00A49DC7 /* MapViewController.m in Sources */,
+				225503D6171B883B00665DDA /* MyCLController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
