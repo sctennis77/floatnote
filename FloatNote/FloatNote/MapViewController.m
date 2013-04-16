@@ -56,6 +56,7 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     options.position = CLLocationCoordinate2DMake(coordinate.latitude,coordinate.longitude);
     options.title = @"Tapped";
     options.snippet = @"Location";
+    [mapView clear]; //get rid of any previously placed markers
     [mapView addMarkerWithOptions:options];
     NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
 }

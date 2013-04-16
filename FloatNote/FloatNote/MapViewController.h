@@ -16,4 +16,5 @@
 @interface MapViewController : UIViewController<GMSMapViewDelegate>{
    MyCLController *locationController;
 }
+
 @end
