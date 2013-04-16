@@ -34,6 +34,11 @@
     
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = item2;
+    
+    //debug textbox
+    _lbl_coord.text = [NSString stringWithFormat:@"%f", [[self appDelegate].selected_long floatValue]];
+    
+   
 }
 
 
@@ -46,8 +51,8 @@
     // and radius
     
     NSString *title = self.titleField.text;
-    NSNumber *lat = [NSNumber numberWithInt:0];
-    NSNumber *lng = [NSNumber numberWithInt:0];
+    NSNumber *lat = [self appDelegate].selected_lat;
+    NSNumber *lng = [self appDelegate].selected_long;
     NSString *body = self.bodyField.text;
     NSNumber *radius = [NSNumber numberWithInt:3];
     NSString *doa = [self.doaButton titleForSegmentAtIndex:self.doaButton.selectedSegmentIndex];
@@ -58,7 +63,7 @@
  
     
     
-    NSLog(@"Creating reminder:\nt: %@\nb: %@\ndoa: %@",title,body,doa);
+    NSLog(@"Creating reminder:\nt: %@\nb: %@\ndoa: %@\nlat: %f\nlong: %f",title,body,doa, lat.floatValue, lng.floatValue);
     
     
     

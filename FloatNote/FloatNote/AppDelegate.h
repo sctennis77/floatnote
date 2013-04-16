@@ -16,6 +16,11 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+//global latitude and longitude values
+//to hold the values as they come back from the map view
+@property NSNumber  *selected_long;
+@property NSNumber  *selected_lat;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

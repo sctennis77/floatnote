@@ -7,7 +7,7 @@
 //
 
 #import "MapViewController.h"
-
+#import "AppDelegate.h" 
 
 
 @implementation MapViewController {
@@ -59,7 +59,17 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     [mapView clear]; //get rid of any previously placed markers
     [mapView addMarkerWithOptions:options];
     NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
+    
+    //save the coordinate data globally
+    [self appDelegate].selected_long = [NSNumber numberWithFloat:coordinate.longitude];
+    [self appDelegate].selected_lat = [NSNumber numberWithFloat:coordinate.latitude];
+  
 }
+
+- (AppDelegate *)appDelegate {
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 
 - (void)viewDidLoad
 {

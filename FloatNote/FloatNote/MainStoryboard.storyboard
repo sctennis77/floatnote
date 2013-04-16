@@ -55,6 +55,7 @@
                                 <accessibility key="accessibilityConfiguration" label="body"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="Iyq-o7-zxb"/>
+                                    <constraint firstAttribute="width" constant="240" id="XhT-Ze-dM4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -78,23 +79,34 @@
                                     <segue destination="FVa-Qz-3LQ" kind="push" id="GPO-jg-ZhI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="lbl_coord" text="[.....]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-4O-sTB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="FeA-Rc-ler"/>
+                                    <constraint firstAttribute="height" constant="41" id="sEK-3U-m1n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GuF-uC-V35" firstAttribute="leading" secondItem="RS7-V8-qVE" secondAttribute="leading" constant="40" id="8dJ-4g-jYs"/>
-                            <constraint firstItem="GuF-uC-V35" firstAttribute="top" secondItem="hty-K2-3Nd" secondAttribute="top" type="default" id="MJN-mT-I89"/>
+                            <constraint firstItem="hty-K2-3Nd" firstAttribute="top" secondItem="RS7-V8-qVE" secondAttribute="top" constant="128" id="128-pt-dCv"/>
+                            <constraint firstItem="qL5-Ls-CqF" firstAttribute="centerX" secondItem="RS7-V8-qVE" secondAttribute="centerX" type="default" id="1J9-zZ-SPq"/>
+                            <constraint firstItem="w5Q-4O-sTB" firstAttribute="top" secondItem="RS7-V8-qVE" secondAttribute="top" constant="62" id="HPt-vS-tpY"/>
                             <constraint firstAttribute="trailing" secondItem="hty-K2-3Nd" secondAttribute="trailing" constant="98" id="NQM-PI-gQ7"/>
                             <constraint firstItem="K9B-D5-h8Q" firstAttribute="top" secondItem="RS7-V8-qVE" secondAttribute="top" constant="195" id="Naf-5D-ojL"/>
                             <constraint firstItem="K9B-D5-h8Q" firstAttribute="leading" secondItem="GuF-uC-V35" secondAttribute="leading" type="default" id="OF7-fb-APP"/>
                             <constraint firstItem="qL5-Ls-CqF" firstAttribute="top" secondItem="K9B-D5-h8Q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PkV-qR-8Rf"/>
                             <constraint firstItem="GuF-uC-V35" firstAttribute="top" secondItem="RS7-V8-qVE" secondAttribute="top" constant="129" id="f0P-Mp-cLw"/>
+                            <constraint firstItem="w5Q-4O-sTB" firstAttribute="leading" secondItem="RS7-V8-qVE" secondAttribute="leading" constant="33" id="iz5-d9-VDo"/>
                             <constraint firstItem="K9B-D5-h8Q" firstAttribute="leading" secondItem="qL5-Ls-CqF" secondAttribute="leading" type="default" id="lDM-u2-r0h"/>
-                            <constraint firstItem="qL5-Ls-CqF" firstAttribute="centerX" secondItem="RS7-V8-qVE" secondAttribute="centerX" type="default" id="pqH-wc-Lz1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bodyField" destination="qL5-Ls-CqF" id="Swx-AF-dVP"/>
                         <outlet property="doaButton" destination="K9B-D5-h8Q" id="9pt-qU-NwY"/>
+                        <outlet property="lbl_coord" destination="w5Q-4O-sTB" id="L9W-lM-vgb"/>
                         <outlet property="mapButton" destination="hty-K2-3Nd" id="Y4y-61-3Rt"/>
                         <outlet property="titleField" destination="GuF-uC-V35" id="3Od-fi-64d"/>
                     </connections>
@@ -143,6 +155,7 @@
             <relationships>
                 <relationship kind="outlet" name="bodyField" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="doaButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="lbl_coord" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
             </relationships>
