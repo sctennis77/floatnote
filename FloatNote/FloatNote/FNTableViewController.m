@@ -14,7 +14,7 @@
 
 @implementation FNTableViewController
 @synthesize noteArray;
-
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,6 +39,7 @@
 {
     [super viewDidLoad];
 
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -50,7 +51,9 @@
 }
 
 
-
+- (void)viewDidUnload {
+    self.fetchedResultsController = nil;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -69,7 +72,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //the count in the noteArray
-    NSLog(@"count");
+
     return [noteArray count];
 }
 
@@ -142,6 +145,10 @@
      */
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
 #pragma private methods
 - (AppDelegate *)appDelegate {
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -166,8 +173,28 @@
     
     
     NSError *error = nil;
-    self.noteArray = [context executeFetchRequest:fetchRequest error:&error];
+    self.noteArray = [[context executeFetchRequest:fetchRequest error:&error ] mutableCopy];
     [self.tableView reloadData];
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //remove the deleted object from your data source.
+        //If you're data source is an NSMutableArray, do this
+        
+        if ([self.noteArray count] >= 1) {
+            [tableView beginUpdates];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                    withRowAnimation:YES];
+        
+            [self.noteArray removeObjectAtIndex:indexPath.row];
+        }
+        if ([self.noteArray count] == 0) {
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        [tableView endUpdates];
+    }
 }
 
 - (void) addItem {

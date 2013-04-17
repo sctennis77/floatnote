@@ -13,6 +13,8 @@
 @interface FNTableViewController : UITableViewController
 
 // An array to house all of our fetched Label objects
-@property (strong, nonatomic) NSArray *noteArray;
+@property (strong, nonatomic) NSMutableArray *noteArray;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end
