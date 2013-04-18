@@ -8,6 +8,7 @@
 
 #import "FNTableViewController.h"
 #import "FNCreateNoteViewController.h"
+#import "FNNoteViewViewController.h"
 @interface FNTableViewController ()
 
 @end
@@ -137,12 +138,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+    FNNoteViewViewController *fnv = [self.storyboard instantiateViewControllerWithIdentifier:@"NoteView"];
+    fnv.note = [self.noteArray objectAtIndex:indexPath.row];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSLog(@"pushinggg");
+     [self.navigationController pushViewController:fnv animated:YES];
+        
+     
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
